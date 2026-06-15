@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SongController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -13,6 +14,12 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+Route::get('test', function () {
+    return Inertia::render('Test', ['phpVersion' => PHP_VERSION]);
+});
+
+Route::get('songs', [SongController::class, 'browse']);
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
