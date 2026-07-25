@@ -8,9 +8,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class SongContributors extends Model
 {
+    public $timestamps = false;
+    
     protected $fillable = [
-        'title',
-        'duration_seconds',
+        'artist_id',
+        'song_id',
+        'artist_role_id',
     ];
 
     public function artists(): BelongsToMany
